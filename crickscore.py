@@ -69,8 +69,7 @@ last_wicket.grid(row=55, sticky=W)
 run_rate.grid(row=60, sticky=W)
 recent_balls.grid(row=70, sticky=W)
 
-p1=PhotoImage(file="icon2.png")
-master.iconphoto(False,p1)
+
 
 
 e1 = Entry(master)
