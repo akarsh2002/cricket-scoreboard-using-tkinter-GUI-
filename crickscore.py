@@ -3,7 +3,7 @@ from tkinter import messagebox
 import tkinter.font
 import json
 import requests
-import mysql.connector
+
 
 
 
@@ -14,12 +14,6 @@ Font = tkinter.font.Font(family="Times New Roman")
 master.title('Online Cricket Score Board')
 
 
-mydb=mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Akarsh@1234",
-    database="cric_info"
-)
 
 
 def clicked():
@@ -45,15 +39,7 @@ def display():
         last_wicket.configure(text="Last Wicket:   " + match_data['livescore']['lastwicket'])
         run_rate.configure(text="Run rate:   " + match_data['livescore']['runrate'])
         recent_balls.configure(text="Recent Balls:   " + match_data['livescore']['recentballs'])
-        insert_statement =(
-            "INSERT INTO score(match_id, match_name)"
-            "VALUES ( %s, %s)"
-        )
-        mydb = (match_id, match_name)
-        mycursor = mydb.cursor()
-        mycursor.execute(insert_statement,mydb)
-        mydb.commit()
-
+       
 
 Label(master, text="Enter match ID: " , bg = "light grey").grid(row=0, sticky=W)
 title = Label(master,text="Name of the match:", bg = "light grey")
